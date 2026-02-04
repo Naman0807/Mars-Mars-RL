@@ -25,8 +25,8 @@ def train(
     batch_size: int = 64,
     n_epochs: int = 10,
     ent_coef: float = 0.01,
-    save_freq: int = 10_000,
-    eval_freq: int = 5_000,
+    save_freq: int = 30_000,
+    eval_freq: int = 10_000,
     n_eval_episodes: int = 5,
     verbose: int = 1,
 ):

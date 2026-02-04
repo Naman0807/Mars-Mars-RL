@@ -30,8 +30,8 @@ COLOR_FUEL_LOW = (255, 0, 0)         # Red
 COLOR_UI_TEXT = (255, 255, 255)      # White
 
 # ===== PHYSICS =====
-GRAVITY = 800.0                      # Pixels per second^2
-DRAG = 0.98                          # Air resistance multiplier
+GRAVITY = 800.0                      # Pixels per second^2 (Increased from 800)
+DRAG = 0.98                         # Air resistance multiplier (Less drag = harder)
 TERMINAL_VELOCITY = 600.0            # Max fall speed
 
 # Thrust settings
@@ -42,41 +42,52 @@ THRUST_HORIZONTAL = 700.0            # Horizontal thrust force
 PLAYER_WIDTH = 40
 PLAYER_HEIGHT = 50
 MAX_FUEL = 100.0
-FUEL_DRAIN_RATE = 40.0               # Fuel units per second
+FUEL_DRAIN_RATE = 50.0               # Fuel units per second (Increased from 40)
 
-# Landing conditions (Slightly relaxed for AI training)
-MAX_LANDING_SPEED_Y = 220.0          # Max vertical speed for safe landing (was 200)
-MAX_LANDING_SPEED_X = 180.0          # Max horizontal speed for safe landing (was 150)
+# Landing conditions (Harder)
+MAX_LANDING_SPEED_Y = 220.0          # Max vertical speed (Decreased from 220)
+MAX_LANDING_SPEED_X = 180.0          # Max horizontal speed (Decreased from 180)
 
 # ===== PLATFORMS =====
-PLATFORM_WIDTH = 120
+PLATFORM_WIDTH = 100                 # Smaller platforms (Decreased from 120)
 PLATFORM_HEIGHT = 20
 PLATFORM_BASE_HEIGHT = 40
 
-# Platform generation ranges
-PLATFORM_MIN_DISTANCE_X = 200
-PLATFORM_MAX_DISTANCE_X = 400
+# Platform generation ranges (Further apart)
+PLATFORM_MIN_DISTANCE_X = 300        # Increased from 200
+PLATFORM_MAX_DISTANCE_X = 600        # Increased from 400
 PLATFORM_MIN_DISTANCE_Y = -150       # Can be above
 PLATFORM_MAX_DISTANCE_Y = 100        # Or below
 
 # Ground level
 GROUND_LEVEL = SCREEN_HEIGHT - 100
 
+# ===== NEW FEATURES: DIFFICULTY =====
+# Wind Settings
+WIND_ENABLED = True
+WIND_CHANGE_INTERVAL = 100           # Frames between wind changes (approx 2 sec)
+MAX_WIND_FORCE = 300.0               # Max lateral force
+
+# Moving Platforms
+MOVING_PLATFORMS_ENABLED = True
+PLATFORM_MOVE_SPEED = 100.0          # Pixels per second
+PLATFORM_MOVE_RANGE = 150.0          # Range of motion +/- from center
+
 # ===== CAMERA =====
-CAMERA_SMOOTH = 0.08                  # Lerp factor (lower = smoother)
-CAMERA_LOOK_AHEAD_X = 200             # How far ahead to look
-CAMERA_VERTICAL_OFFSET = -100         # Offset to keep player visible
+CAMERA_SMOOTH = 0.08                 # Lerp factor (lower = smoother)
+CAMERA_LOOK_AHEAD_X = 200            # How far ahead to look
+CAMERA_VERTICAL_OFFSET = -100        # Offset to keep player visible
 
 # ===== PARTICLES =====
-EXHAUST_PARTICLE_COUNT = 3            # Particles per frame when thrusting
-EXHAUST_PARTICLE_LIFETIME = 0.3       # Seconds
-EXHAUST_PARTICLE_SIZE = 8             # Initial size
-EXPLOSION_PARTICLE_COUNT = 50         # Particles on crash
+EXHAUST_PARTICLE_COUNT = 3           # Particles per frame when thrusting
+EXHAUST_PARTICLE_LIFETIME = 0.3      # Seconds
+EXHAUST_PARTICLE_SIZE = 8            # Initial size
+EXPLOSION_PARTICLE_COUNT = 50        # Particles on crash
 
 # ===== SCREEN SHAKE =====
-THRUST_SHAKE_MAGNITUDE = 2            # Pixels
-CRASH_SHAKE_MAGNITUDE = 15            # Pixels
-SHAKE_DECAY = 0.9                     # Decay rate per frame
+THRUST_SHAKE_MAGNITUDE = 2           # Pixels
+CRASH_SHAKE_MAGNITUDE = 15           # Pixels
+SHAKE_DECAY = 0.9                    # Decay rate per frame
 
 # ===== GAME STATES =====
 STATE_START = "start"
