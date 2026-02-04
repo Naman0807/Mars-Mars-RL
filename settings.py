@@ -30,23 +30,23 @@ COLOR_FUEL_LOW = (255, 0, 0)         # Red
 COLOR_UI_TEXT = (255, 255, 255)      # White
 
 # ===== PHYSICS =====
-GRAVITY = 800.0                       # Pixels per second^2
-DRAG = 0.98                           # Air resistance multiplier
-TERMINAL_VELOCITY = 600.0             # Max fall speed
+GRAVITY = 800.0                      # Pixels per second^2
+DRAG = 0.98                          # Air resistance multiplier
+TERMINAL_VELOCITY = 600.0            # Max fall speed
 
 # Thrust settings
-THRUST_POWER = 1400.0                 # Upward thrust force
-THRUST_HORIZONTAL = 700.0             # Horizontal thrust force
+THRUST_POWER = 1400.0                # Upward thrust force
+THRUST_HORIZONTAL = 700.0            # Horizontal thrust force
 
 # ===== PLAYER =====
 PLAYER_WIDTH = 40
 PLAYER_HEIGHT = 50
 MAX_FUEL = 100.0
-FUEL_DRAIN_RATE = 40.0                # Fuel units per second
+FUEL_DRAIN_RATE = 40.0               # Fuel units per second
 
-# Landing conditions
-MAX_LANDING_SPEED_Y = 200.0           # Max vertical speed for safe landing
-MAX_LANDING_SPEED_X = 150.0           # Max horizontal speed for safe landing
+# Landing conditions (Slightly relaxed for AI training)
+MAX_LANDING_SPEED_Y = 220.0          # Max vertical speed for safe landing (was 200)
+MAX_LANDING_SPEED_X = 180.0          # Max horizontal speed for safe landing (was 150)
 
 # ===== PLATFORMS =====
 PLATFORM_WIDTH = 120
@@ -56,8 +56,8 @@ PLATFORM_BASE_HEIGHT = 40
 # Platform generation ranges
 PLATFORM_MIN_DISTANCE_X = 200
 PLATFORM_MAX_DISTANCE_X = 400
-PLATFORM_MIN_DISTANCE_Y = -150        # Can be above
-PLATFORM_MAX_DISTANCE_Y = 100         # Or below
+PLATFORM_MIN_DISTANCE_Y = -150       # Can be above
+PLATFORM_MAX_DISTANCE_Y = 100        # Or below
 
 # Ground level
 GROUND_LEVEL = SCREEN_HEIGHT - 100
@@ -83,3 +83,11 @@ STATE_START = "start"
 STATE_PLAYING = "playing"
 STATE_LANDED = "landed"
 STATE_CRASHED = "crashed"
+
+# ===== REINFORCEMENT LEARNING REWARDS =====
+# Tuning these values shapes the AI's behavior
+REWARD_LANDING = 100.0
+REWARD_CRASH_GROUND = -100.0
+REWARD_CRASH_PLATFORM = -30.0  # Less punishment for hitting target too fast vs missing it
+REWARD_FUEL_PENALTY = -0.05
+REWARD_TIME_PENALTY = -0.01
